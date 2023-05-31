@@ -2,13 +2,13 @@
 
 namespace App\Math\Dto;
 
-class GeometricDto
+class ArithmeticDto
 {
     private int $size;
 
     public function __construct(
         private readonly int $start,
-        private readonly float $ratio,
+        private readonly int $increment,
         int $size
     ){
         $this->ensureSizeIsPositive($size);
@@ -20,9 +20,9 @@ class GeometricDto
         return $this->start;
     }
 
-    public function ratio(): float
+    public function increment(): int
     {
-        return $this->ratio;
+        return $this->increment;
     }
 
     public function size(): int
@@ -30,7 +30,7 @@ class GeometricDto
         return $this->size;
     }
 
-    private function ensureSizeIsPositive($size): void
+    private function ensureSizeIsPositive(int $size): void
     {
         if ($size < 0) {
             throw new \InvalidArgumentException('Size must be positive');
