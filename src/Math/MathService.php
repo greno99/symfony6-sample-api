@@ -35,7 +35,7 @@ class MathService
     public function retrieveFibonacciSequenceWithFibonacciDto(FibonacciDto $fibonacciDto): array
     {
         $fib = [0, 1];
-        for ($i = 1; $i < $fibonacciDto->size(); $i++) {
+        for ($i = 1; $i < ($fibonacciDto->size()-1); $i++) {
             $fib[] = $fib[$i] + $fib[$i - 1];
         }
 
