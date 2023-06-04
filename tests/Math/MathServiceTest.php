@@ -10,12 +10,28 @@ use PHPUnit\Framework\TestCase;
 
 class MathServiceTest extends TestCase
 {
-    public function testFibonacciArrayIsCorrect(): void
+    public function testFibonacciArrayIsCorrectWithSizeIsTen(): void
     {
         $mathService = new MathService();
         $fibonacciDto = new FibonacciDto(10);
         $fibonacciArray = $mathService->retrieveFibonacciSequenceWithFibonacciDto($fibonacciDto);
         $this->assertEquals([0, 1, 1, 2, 3, 5, 8, 13, 21, 34], $fibonacciArray);
+    }
+
+    public function testFibonacciArrayIsCorrectWithSizeIsZero(): void
+    {
+        $mathService = new MathService();
+        $fibonacciDto = new FibonacciDto(0);
+        $fibonacciArray = $mathService->retrieveFibonacciSequenceWithFibonacciDto($fibonacciDto);
+        $this->assertEquals([0], $fibonacciArray);
+    }
+
+    public function testFibonacciArrayIsCorrectWithSizeIsOne(): void
+    {
+        $mathService = new MathService();
+        $fibonacciDto = new FibonacciDto(1);
+        $fibonacciArray = $mathService->retrieveFibonacciSequenceWithFibonacciDto($fibonacciDto);
+        $this->assertEquals([0, 1], $fibonacciArray);
     }
 
     public function testMathArithmeticArrayIsCorrect(): void

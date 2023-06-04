@@ -34,6 +34,10 @@ class MathService
 
     public function retrieveFibonacciSequenceWithFibonacciDto(FibonacciDto $fibonacciDto): array
     {
+        if ($fibonacciDto->size() < 1) {
+            return [0];
+        }
+
         $fib = [0, 1];
         for ($i = 1; $i < ($fibonacciDto->size()-1); $i++) {
             $fib[] = $fib[$i] + $fib[$i - 1];
